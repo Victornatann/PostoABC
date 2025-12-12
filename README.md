@@ -30,14 +30,16 @@ O projeto está organizado seguindo o padrão MVC:
 
 - **Models** (`src/models/`): Classes de modelo de dados puros, sem lógica de negócio
 - **Views** (`src/views/`): Formulários e interface do usuário
-- **Controllers** (`src/controllers/`): Lógica de acesso a dados e conexão com banco
+- **Controllers** (`src/controllers/`): Coordenam a lógica de negócio entre models, repositories e views.
 
 ### Pastas
 
 - `sql/` - Scripts SQL do banco de dados
 - `src/models/` - Modelos de dados (MVC)
 - `src/views/` - Formulários/Interface (MVC)
-- `src/controllers/` - Controllers/DAO (MVC)
+- `src/controllers/` - Controllers (MVC)
+- `src/repositories/` - Repositórios para acesso a dados
+- `src/interfaces/` - Interfaces
 - `lib/` - Arquivos compilados (DCUs)
 
 ## Observações

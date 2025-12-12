@@ -30,7 +30,6 @@ object FormAbastecimentos: TFormAbastecimentos
     Padding.Right = 20
     Padding.Bottom = 20
     TabOrder = 0
-    ExplicitWidth = 500
     object Label2: TLabel
       Left = 20
       Top = 44

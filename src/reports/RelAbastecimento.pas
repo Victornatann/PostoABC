@@ -3,11 +3,10 @@ unit RelAbastecimento;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, RLReport, FireDAC.Stan.Param,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.DatS,
-  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, FireDAC.Comp.Client,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, RLReport,
+  uControllerAbastecimento;
 
 type
   TFrmRelAbastecimento = class(TForm)
@@ -48,6 +47,8 @@ type
     RLBand1: TRLBand;
     RLDBResult1: TRLDBResult;
     RLLabel1: TRLLabel;
+    RLDraw3: TRLDraw;
+    RLDraw4: TRLDraw;
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -68,7 +69,7 @@ implementation
 
 {$R *.dfm}
 
-uses uConexao;
+uses uConexao, uControllerRelAbastecimento;
 
 { TFrmRelAbastecimento }
 
@@ -106,8 +107,6 @@ begin
 end;
 
 procedure TFrmRelAbastecimento.PrepararDadosRelatorio;
-var
-  Query: TFDQuery;
 begin
   // Criar query para o relatório
   if Assigned(DataSource1.DataSet) then
@@ -116,34 +115,11 @@ begin
     DataSource1.DataSet.Free;
   end;
 
-  Query := TFDQuery.Create(Self);
-  Query.Connection := TConexao.Connection;
-  Query.SQL.Text := 'SELECT ' +
-                    '   CAST(A.DATA_ABASTECIMENTO AS DATE) AS DATA, ' +
-                    '   CAST(A.DATA_ABASTECIMENTO AS TIME) AS HORA, '+
-                    '   C.TIPO_COMBUSTIVEL AS TANQUE, ' +
-                    '   B.NOME AS BOMBA, ' +
-                    '   A.VALOR, ' +
-                    '   A.LITROS, '+
-                    '   C.PRECO_LITRO, '+
-                    '   A.IMPOSTO '+
-                    'FROM ABASTECIMENTOS A ' +
-                    'INNER JOIN BOMBAS B '+
-                    '   ON A.ID_BOMBA = B.ID ' +
-                    'INNER JOIN TANQUES T  '+
-                    '   ON B.ID_TANQUE = T.ID ' +
-                    'INNER JOIN COMBUSTIVEIS C '+
-                    '   ON T.ID_COMBUSTIVEL = C.ID ' +
-                    'WHERE CAST(A.DATA_ABASTECIMENTO AS DATE) '+
-                    '      BETWEEN :DATA_INICIO AND :DATA_FIM ' +
-                    'ORDER BY '+
-                    '   DATA, '+
-                    '   TANQUE, '+
-                    '   BOMBA, HORA';
-  Query.ParamByName('DATA_INICIO').AsDate := FDataInicial;
-  Query.ParamByName('DATA_FIM').AsDate := FDataFinal;
-  Query.Open();
-  DataSource1.DataSet := Query;
+  DataSource1.DataSet :=
+    TControllerRelAbastecimento.
+      GerarRelatorioAbastecimentos(
+        FDataInicial, FDataFinal
+      );
 
   lblPeriodo.Caption := 'Período: ' + FormatDateTime('dd/mm/yyyy', FDataInicial) +
                       ' a ' + FormatDateTime('dd/mm/yyyy', FDataFinal);

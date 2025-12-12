@@ -24,7 +24,6 @@ object FormRelatorio: TFormRelatorio
     Align = alTop
     Caption = 'Per'#237'odo'
     TabOrder = 0
-    ExplicitWidth = 876
     object Label1: TLabel
       Left = 122
       Top = 28

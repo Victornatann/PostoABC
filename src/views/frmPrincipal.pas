@@ -46,7 +46,6 @@ procedure TFormPrincipal.ConectarBanco;
 var
   CaminhoBanco: string;
 begin
-  // Ajuste o caminho do banco de dados conforme necessário
   CaminhoBanco := ExtractFilePath(Application.ExeName) + 'database/POSTOABC.FDB';
   
   if not FileExists(CaminhoBanco) then
