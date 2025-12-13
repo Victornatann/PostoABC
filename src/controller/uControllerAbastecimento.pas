@@ -90,34 +90,24 @@ var
   Bomba: TBomba;
   PrecoLitro, Litros, Valor, Imposto: Double;
 begin
-  if (IdxBomba < 0) or (IdxBomba >= FBombas.Count) then
-  begin
-    FView.AtualizarValorEImposto(0, 0);
-    Exit;
-  end;
+  FView.AtualizarValorEImposto(0, 0);
 
-  Litros := StrToFloatDef(SLitros, 0);
-  if Litros <= 0 then
-  begin
-    FView.AtualizarValorEImposto(0, 0);
+  if (IdxBomba < 0) or (IdxBomba >= FBombas.Count) then
     Exit;
-  end;
+
+  if not TryStrToFloat(SLitros, Litros) or (Litros <= 0) then
+    Exit;
 
   Bomba := FBombas[IdxBomba];
 
-  if Assigned(Bomba.Tanque) and Assigned(Bomba.Tanque.Combustivel) then
-  begin
-    PrecoLitro := Bomba.Tanque.Combustivel.PrecoLitro;
+  if not (Assigned(Bomba.Tanque) and Assigned(Bomba.Tanque.Combustivel)) then
+    Exit;
 
-    Valor := Litros * PrecoLitro;
-    Imposto := TAbastecimento.CalcularImposto(Valor);
+  PrecoLitro := Bomba.Tanque.Combustivel.PrecoLitro;
+  Valor := Litros * PrecoLitro;
+  Imposto := TAbastecimento.CalcularImposto(Valor);
 
-    FView.AtualizarValorEImposto(Valor, Imposto);
-  end
-  else
-  begin
-    FView.AtualizarValorEImposto(0, 0);
-  end;
+  FView.AtualizarValorEImposto(Valor, Imposto);
 end;
 
 procedure TControllerAbastecimento.CarregarBombas;

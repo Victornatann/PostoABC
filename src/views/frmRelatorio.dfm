@@ -55,7 +55,7 @@ object FormRelatorio: TFormRelatorio
     Top = 65
     Width = 105
     Height = 41
-    Caption = 'Relat'#243'rio'
+    Caption = '&Relat'#243'rio'
     NumGlyphs = 2
     TabOrder = 1
     OnClick = btnGerarRelatorioClick

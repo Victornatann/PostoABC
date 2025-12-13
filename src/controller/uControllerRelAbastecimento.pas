@@ -12,7 +12,8 @@ type
   TControllerRelAbastecimento = class
   public
     class function GerarRelatorioAbastecimentos(
-      DataIni, DataFim: TDate
+      DataIni,
+      DataFim: TDate
     ): TFDQuery;
   end;
 

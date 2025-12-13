@@ -5,10 +5,17 @@ interface
 uses
   Winapi.Windows,
   Winapi.Messages,
-  System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.StdCtrls,
   Vcl.ExtCtrls,
-  Vcl.Mask, Vcl.ComCtrls, RLReport, Data.DB,  Vcl.Buttons;
+  Vcl.Mask, Vcl.ComCtrls,
+  Data.DB,  Vcl.Buttons;
 
 type
   TFormRelatorio = class(TForm)
