@@ -11,6 +11,8 @@ Sistema desenvolvido em Delphi para gerenciar abastecimentos e tanques de combus
   - Data do abastecimento
   - Quantidade de litros (o valor é calculado automaticamente)
   - Cálculo automático de imposto (13% sobre o valor)
+  
+![Formulário de Abastecimento](capturas/form_abastecimento.png)
 
 ### 2. Relatório de Abastecimentos
 
@@ -21,6 +23,8 @@ Sistema desenvolvido em Delphi para gerenciar abastecimentos e tanques de combus
 - Exibe o valor de cada abastecimento
 - Total geral do período selecionado
 - Filtro por período (data início e data fim)
+
+![Relatório de Abastecimentos](capturas/relatorio_abastecimentos.png)
 
 ## Organização do Código
 
