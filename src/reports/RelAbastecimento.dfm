@@ -30,10 +30,10 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
       Left = 38
       Top = 38
       Width = 718
-      Height = 67
+      Height = 75
       BandType = btHeader
       object RLLabelTitulo: TRLLabel
-        Left = 10
+        Left = 2
         Top = 3
         Width = 400
         Height = 24
@@ -46,7 +46,7 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         ParentFont = False
       end
       object lblPeriodo: TRLLabel
-        Left = 10
+        Left = 2
         Top = 27
         Width = 400
         Height = 16
@@ -54,12 +54,12 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         Caption = 'Periodo'
       end
       object lblHora: TRLLabel
-        Left = 68
-        Top = 48
-        Width = 60
+        Left = 151
+        Top = 56
+        Width = 86
         Height = 16
         Alignment = taCenter
-        Caption = 'Hora'
+        Caption = 'HORA ABAS.'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -68,11 +68,11 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         ParentFont = False
       end
       object lblLitros: TRLLabel
-        Left = 196
-        Top = 48
-        Width = 80
+        Left = 284
+        Top = 56
+        Width = 76
         Height = 16
-        Caption = 'Litros'
+        Caption = 'QTDE (LTS)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -81,12 +81,12 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         ParentFont = False
       end
       object lblValorLitro: TRLLabel
-        Left = 306
-        Top = 48
+        Left = 506
+        Top = 56
         Width = 100
         Height = 16
         Alignment = taRightJustify
-        Caption = 'Valor/Litro'
+        Caption = 'UNIT. (R$)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -95,12 +95,12 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         ParentFont = False
       end
       object lblImposto: TRLLabel
-        Left = 436
-        Top = 48
-        Width = 80
+        Left = 398
+        Top = 56
+        Width = 78
         Height = 16
         Alignment = taRightJustify
-        Caption = 'Imposto'
+        Caption = 'IMPOSTO*'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -109,12 +109,12 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         ParentFont = False
       end
       object lblValor: TRLLabel
-        Left = 556
-        Top = 48
-        Width = 80
+        Left = 636
+        Top = 56
+        Width = 79
         Height = 16
         Alignment = taRightJustify
-        Caption = 'Valor'
+        Caption = 'TOTAL'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -13
@@ -124,7 +124,38 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
       end
       object RLDraw1: TRLDraw
         Left = 3
-        Top = 65
+        Top = 73
+        Width = 712
+        Height = 1
+        DrawKind = dkLine
+      end
+      object RLSystemInfo1: TRLSystemInfo
+        Left = 672
+        Top = 3
+        Width = 46
+        Height = 16
+        Alignment = taRightJustify
+        Info = itPageNumber
+        Text = ''
+      end
+      object RLLabel1: TRLLabel
+        Left = 628
+        Top = 3
+        Width = 40
+        Height = 16
+        Alignment = taRightJustify
+        Caption = 'Folha:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+      end
+      object RLDraw5: TRLDraw
+        Left = 3
+        Top = 54
         Width = 712
         Height = 1
         DrawKind = dkLine
@@ -132,7 +163,7 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
     end
     object RLGroupDia: TRLGroup
       Left = 38
-      Top = 105
+      Top = 113
       Width = 718
       Height = 96
       DataFields = 'DATA'
@@ -150,9 +181,22 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
           Color = 15066597
           ParentColor = False
           Transparent = False
+          object RLLabel4: TRLLabel
+            Left = 8
+            Top = 3
+            Width = 29
+            Height = 16
+            Caption = 'Dia:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
         end
         object RLDBTextDia: TRLDBText
-          Left = 46
+          Left = 43
           Top = 3
           Width = 38
           Height = 16
@@ -160,19 +204,6 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
           DataSource = DataSource1
           DisplayMask = 'dd/mm/yyyy'
           Text = ''
-        end
-        object RLLabelDia: TRLLabel
-          Left = 10
-          Top = 3
-          Width = 30
-          Height = 16
-          Caption = 'Dia:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          ParentFont = False
         end
       end
       object RLGroupTanque: TRLGroup
@@ -222,26 +253,19 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
             Width = 718
             Height = 18
             BandType = btHeader
-            object RLLabelBomba: TRLLabel
-              Left = 40
+            object RLDBTextBomba: TRLDBText
+              Left = 65
               Top = 2
-              Width = 45
+              Width = 52
               Height = 16
-              Caption = 'Bomba:'
+              DataField = 'BOMBA'
+              DataSource = DataSource1
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Height = -13
               Font.Name = 'Arial'
               Font.Style = [fsBold]
               ParentFont = False
-            end
-            object RLDBTextBomba: TRLDBText
-              Left = 95
-              Top = 2
-              Width = 52
-              Height = 16
-              DataField = 'BOMBA'
-              DataSource = DataSource1
               Text = ''
             end
           end
@@ -249,11 +273,11 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
             Left = 0
             Top = 18
             Width = 718
-            Height = 20
+            Height = 25
             object RLDBTextHora: TRLDBText
-              Left = 68
-              Top = 3
-              Width = 60
+              Left = 151
+              Top = 2
+              Width = 86
               Height = 15
               Alignment = taCenter
               DataField = 'HORA'
@@ -268,13 +292,14 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
               Text = ''
             end
             object RLDBTextLitros: TRLDBText
-              Left = 196
+              Left = 284
               Top = 2
-              Width = 46
+              Width = 76
               Height = 15
+              Alignment = taCenter
               DataField = 'LITROS'
               DataSource = DataSource1
-              DisplayMask = '#,##0.00'
+              DisplayMask = '0.##'
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Height = -12
@@ -284,7 +309,7 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
               Text = ''
             end
             object RLDBTextValorLitro: TRLDBText
-              Left = 306
+              Left = 506
               Top = 2
               Width = 100
               Height = 15
@@ -301,9 +326,9 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
               Text = ''
             end
             object RLDBTextImposto: TRLDBText
-              Left = 436
+              Left = 398
               Top = 3
-              Width = 80
+              Width = 78
               Height = 15
               Alignment = taRightJustify
               DataField = 'IMPOSTO'
@@ -318,7 +343,7 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
               Text = ''
             end
             object RLDBTextValor: TRLDBText
-              Left = 556
+              Left = 636
               Top = 2
               Width = 80
               Height = 15
@@ -341,13 +366,14 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         Left = 0
         Top = 72
         Width = 718
-        Height = 25
+        Height = 31
         BandType = btSummary
         object RLDBResult1: TRLDBResult
-          Left = 500
-          Top = 6
-          Width = 80
+          Left = 632
+          Top = 7
+          Width = 83
           Height = 16
+          Alignment = taRightJustify
           DataField = 'VALOR'
           DataSource = DataSource1
           DisplayMask = 'R$ #,##0.00'
@@ -359,19 +385,25 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
           Info = riSum
           ParentFont = False
           Text = ''
+          Transparent = False
         end
-        object RLLabel1: TRLLabel
-          Left = 390
-          Top = 6
-          Width = 100
+        object RLDBResult2: TRLDBResult
+          Left = 284
+          Top = 7
+          Width = 76
           Height = 16
-          Caption = 'TOTAL DO DIA:'
+          Alignment = taCenter
+          DataField = 'LITROS'
+          DataSource = DataSource1
+          DisplayMask = '0.##'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold]
+          Info = riSum
           ParentFont = False
+          Text = ''
         end
         object RLDraw4: TRLDraw
           Left = 6
@@ -380,18 +412,34 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
           Height = 1
           DrawKind = dkLine
           Pen.Style = psDot
+          Transparent = False
+        end
+        object RLLabel2: TRLLabel
+          Left = 157
+          Top = 7
+          Width = 101
+          Height = 16
+          Alignment = taRightJustify
+          Caption = 'TOTAIS DO DIA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Transparent = False
         end
       end
     end
     object RLBandSummary: TRLBand
       Left = 38
-      Top = 201
+      Top = 209
       Width = 718
       Height = 40
       BandType = btSummary
       object RLLabelTotal: TRLLabel
-        Left = 3
-        Top = 10
+        Left = 379
+        Top = 18
         Width = 229
         Height = 19
         Caption = 'TOTAL GERAL DO PER'#205'ODO:'
@@ -403,10 +451,11 @@ object FrmRelAbastecimento: TFrmRelAbastecimento
         ParentFont = False
       end
       object RLDBResultTotal: TRLDBResult
-        Left = 233
-        Top = 10
+        Left = 609
+        Top = 18
         Width = 109
         Height = 19
+        Alignment = taRightJustify
         DataField = 'VALOR'
         DataSource = DataSource1
         DisplayMask = 'R$ #,##0.00'

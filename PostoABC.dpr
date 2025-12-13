@@ -14,7 +14,8 @@ uses
   uConexao in 'src\repositories\uConexao.pas',
   uDAOBomba in 'src\repositories\uDAOBomba.pas',
   uControllerAbastecimento in 'src\controller\uControllerAbastecimento.pas',
-  uDAOAbastecimento in 'src\repositories\uDAOAbastecimento.pas';
+  uDAOAbastecimento in 'src\repositories\uDAOAbastecimento.pas',
+  uControllerRelAbastecimento in 'src\controller\uControllerRelAbastecimento.pas';
 
 {$R *.res}
 

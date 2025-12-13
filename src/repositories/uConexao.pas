@@ -43,7 +43,6 @@ class function TConexao.Conectar(
     const ASenha: string
 ): Boolean;
 begin
-  Result := False;
   try
     GetConnection();
     
@@ -57,10 +56,12 @@ begin
     FConnection.Params.Add('CharacterSet=UTF8');
     FConnection.LoginPrompt := False;
     FConnection.Connected := True;
-    Result := True;
+    Exit(True);
   except
     on E: Exception do
+    begin
       raise Exception.Create('Erro ao conectar ao banco de dados: ' + E.Message);
+    end;
   end;
 end;
 

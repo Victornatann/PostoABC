@@ -25,14 +25,12 @@ type
     RLBandDiaHeader: TRLBand;
     RLPanelDia: TRLPanel;
     RLDBTextDia: TRLDBText;
-    RLLabelDia: TRLLabel;
     RLGroupTanque: TRLGroup;
     RLBandTanqueHeader: TRLBand;
     RLLabelTanque: TRLLabel;
     RLDBTextTanque: TRLDBText;
     RLGroupBomba: TRLGroup;
     RLBandBombaHeader: TRLBand;
-    RLLabelBomba: TRLLabel;
     RLDBTextBomba: TRLDBText;
     RLBandDetail: TRLBand;
     RLDBTextHora: TRLDBText;
@@ -46,9 +44,14 @@ type
     RLDraw2: TRLDraw;
     RLBand1: TRLBand;
     RLDBResult1: TRLDBResult;
-    RLLabel1: TRLLabel;
     RLDraw3: TRLDraw;
     RLDraw4: TRLDraw;
+    RLDBResult2: TRLDBResult;
+    RLLabel2: TRLLabel;
+    RLSystemInfo1: TRLSystemInfo;
+    RLLabel1: TRLLabel;
+    RLDraw5: TRLDraw;
+    RLLabel4: TRLLabel;
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private

@@ -16,6 +16,7 @@ type
     RelatriodeAbastecimentos1: TMenuItem;
     Sair1: TMenuItem;
     Panel1: TPanel;
+    Image1: TImage;
     procedure Abastecimentos1Click(Sender: TObject);
     procedure RelatriodeAbastecimentos1Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);

@@ -134,7 +134,8 @@ end;
 procedure TFormAbastecimentos.FormCreate(Sender: TObject);
 begin
   FController := TControllerAbastecimento.Create(Self);
-  FController.Inicializar
+  FController.Inicializar;
+  LimparCampos();
 end;
 
 procedure TFormAbastecimentos.FormDestroy(Sender: TObject);
